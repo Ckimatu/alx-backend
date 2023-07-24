@@ -8,6 +8,7 @@ import csv
 import math
 from typing import List, Dict, Union
 
+
 class Server:
     """Server class to paginate a database of popular baby names.
     """
@@ -31,13 +32,14 @@ class Server:
         """Get a page of the dataset
         """
         assert isinstance(page, int) and page > 0, "page should be int > 0"
-        assert isinstance(page_size, int) and page_size > 0, "page_size, int > i0"
+        assert isinstance(page_size, int) and page_size > 0, "page_size,int>0"
 
         start_idx, end_idx = index_range(page, page_size)
         dataset = self.dataset()
         return dataset[start_idx:end_idx]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Union[int, List[List], None]]:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[
+            str, Union[int, List[List], None]]:
         """Get a page of the dataset with hypermedia metadata
         """
         data_page = self.get_page(page, page_size)
@@ -53,6 +55,7 @@ class Server:
             "prev_page": prev_page,
             "total_pages": total_pages
         }
+
 
 def index_range(page: int, page_size: int) -> tuple:
     """Return a tuple of start and end indexes based on page and page_size

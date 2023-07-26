@@ -13,7 +13,6 @@ class MRUCache(BaseCaching):
         """ Initialize MRUCache
         """
         super().__init__()
-        
         """The list stores the keys in the order they are accessed,
         with the most recently accessed key at the front (index 0)
         """
